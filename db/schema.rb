@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225123943) do
+ActiveRecord::Schema.define(:version => 20120225162345) do
+
+  create_table "battles", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "panelists", :force => true do |t|
     t.string   "name"
@@ -22,6 +29,14 @@ ActiveRecord::Schema.define(:version => 20120225123943) do
     t.integer  "point",       :default => 0
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+  end
+
+  create_table "rounds", :force => true do |t|
+    t.integer  "battle_id"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
