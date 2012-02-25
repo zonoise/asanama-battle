@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225162345) do
+ActiveRecord::Schema.define(:version => 20120225181711) do
 
   create_table "battles", :force => true do |t|
     t.string   "title"
@@ -37,6 +37,15 @@ ActiveRecord::Schema.define(:version => 20120225162345) do
     t.datetime "end"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "votes", :force => true do |t|
+    t.integer  "user_id",     :null => false
+    t.integer  "round_id",    :null => false
+    t.integer  "panelist_id", :null => false
+    t.integer  "kind",        :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
