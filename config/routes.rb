@@ -1,4 +1,17 @@
 AsanamaBattle::Application.routes.draw do
+
+  resources :panelists ,:only => %w[index] do
+    member do
+      post 'good'
+      post 'bad'
+      get 'point'
+    end 
+  end
+
+  namespace :admin do
+    resources :panelists
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
