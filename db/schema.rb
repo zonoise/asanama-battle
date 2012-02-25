@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225111346) do
+ActiveRecord::Schema.define(:version => 20120225123943) do
 
   create_table "panelists", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.string   "image_url"
-    t.integer  "good"
-    t.integer  "bad"
-    t.integer  "point"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "good",        :default => 0
+    t.integer  "bad",         :default => 0
+    t.integer  "point",       :default => 0
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
 end
