@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225181711) do
+ActiveRecord::Schema.define(:version => 20120225212901) do
 
   create_table "battles", :force => true do |t|
     t.string   "title"
@@ -29,7 +29,10 @@ ActiveRecord::Schema.define(:version => 20120225181711) do
     t.integer  "point",       :default => 0
     t.datetime "created_at",                 :null => false
     t.datetime "updated_at",                 :null => false
+    t.integer  "battle_id"
   end
+
+  add_index "panelists", ["battle_id"], :name => "index_panelists_on_battle_id"
 
   create_table "rounds", :force => true do |t|
     t.integer  "battle_id"
@@ -39,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20120225181711) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "rounds", ["battle_id"], :name => "index_rounds_on_battle_id"
+
   create_table "votes", :force => true do |t|
     t.integer  "user_id",     :null => false
     t.integer  "round_id",    :null => false
@@ -47,5 +52,8 @@ ActiveRecord::Schema.define(:version => 20120225181711) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  add_index "votes", ["panelist_id"], :name => "index_votes_on_panelist_id"
+  add_index "votes", ["round_id"], :name => "index_votes_on_round_id"
 
 end
