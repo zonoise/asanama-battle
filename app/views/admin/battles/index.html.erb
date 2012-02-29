@@ -1,0 +1,12 @@
+<% for b in @battles %>
+  <%= b.id  %>
+  <%= b.title  %>
+  <%= b.description  %>
+  <%= link_to "edit" , edit_admin_battle_path(b.id)%>
+  <%= link_to "delete" , admin_battle_path(b.id) ,:method=>:delete%>
+  <%= link_to "panelists" ,admin_battle_panelists_path(b.id)  %>
+  <%= link_to "rounds" ,admin_battle_rounds_path(b.id)  %>
+<br>
+<% end %>
+
+<%= link_to 'new' ,new_admin_battle_path %>

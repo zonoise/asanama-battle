@@ -1,0 +1,7 @@
+Admin Battle Round
+
+<%= form_for([:admin,@battle,@round]) do |f| %>
+  <label>start</label><%= f.datetime_select :start %><br>
+  <label>end</label><%= f.datetime_select :end %><br>
+  <%= f.submit %>
+<% end %>

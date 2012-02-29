@@ -1,15 +1,22 @@
 AsanamaBattle::Application.routes.draw do
 
-  resources :panelists ,:only => %w[index] do
-    member do
-      post 'good'
-      post 'bad'
-      get 'point'
-    end 
+
+  resources :battles ,:only => ['index','show'] do
+    resources :panelists ,:only => %w[index] do
+      member do 
+        post 'good'
+        post 'bad'
+        get 'point'
+      end 
+    end
   end
 
   namespace :admin do
-    resources :panelists
+    match '/' => 'ControllPanel#index'
+    resources :battles ,:except=>  %w[show] do
+      resources :panelists ,:except=>  %w[show]
+      resources :rounds
+    end
   end
 
   # The priority is based upon order of creation:

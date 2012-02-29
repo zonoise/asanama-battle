@@ -1,0 +1,6 @@
+<h1>Admin Battle New</h1>
+<%= form_for([:admin,@battle]) do |f|%>
+  <label>Title</label><%= f.text_field :title %><br>
+  <label>Description</label><%= f.text_field :description %><br>
+  <%= f.submit %>
+<% end %>

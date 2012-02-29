@@ -1,1 +1,25 @@
-admin index
+<% b = Battle.find(params[:battle_id]) %>
+<h2>Battle</h2>
+<label>title</label><%= b.title %> <br>
+<label>description</label><%= b.description %>
+<h2>Panelist</h2>
+
+<table>
+  <tr>
+    <th>name</th><th>description</th><th>image_url</th>
+  </tr>
+  <% for p in @panelists %>
+      <tr>
+        <td><%= p.name %></td>
+        <td><%= p.description %></td>
+        <td><%= p.image_url %></td>
+        <td><%=link_to("Delete" ,admin_battle_panelist_path(p.id,:battle_id=> b.id) , :method => :delete
+                       ) %></td>
+
+        <td><%=link_to("Edit" ,edit_admin_battle_panelist_path(p.id,:battle_id=> b.id)
+                       ) %></td>
+
+      </tr>
+  <% end %>
+<table>
+<%= link_to 'new Panelist' , new_admin_battle_panelist_path %>
