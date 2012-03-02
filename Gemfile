@@ -24,6 +24,8 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem "rspec-rails", "~> 2.6"
+  gem "timecop",">= 0.3.5"
+  gem 'ruby-debug19', :require => 'ruby-debug'
 end
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -38,4 +40,4 @@ end
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+
