@@ -1,4 +1,6 @@
-Admin Battle Panelist new
+<%=link_to 'AdminTOP' , admin_path %> > 
+<%=link_to  'BattleTOP' , admin_battle_path(params[:battle_id]) %><br>
+<h1>Panelist new or edit</h1>
 
 <%= form_for([:admin,@battle,@panelist]) do |f| %>
   <label>name</label><%= f.text_field :name %><br>

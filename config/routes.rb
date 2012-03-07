@@ -13,9 +13,13 @@ AsanamaBattle::Application.routes.draw do
 
   namespace :admin do
     match '/' => 'ControllPanel#index'
-    resources :battles ,:except=>  %w[show] do
+    resources :battles  do
       resources :panelists ,:except=>  %w[show]
-      resources :rounds
+      resources :rounds do
+        collection do
+          post 'create_all'
+        end
+      end
     end
   end
 

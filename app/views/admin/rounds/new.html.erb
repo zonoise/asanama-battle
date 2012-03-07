@@ -1,7 +1,19 @@
-Admin Battle Round
+<%=link_to 'AdminTOP' , admin_path %> > 
+<%=link_to  'BattleTOP' , admin_battle_path(params[:battle_id]) %><br>
 
+<h1>Round</h1>
+
+<h2>Single Round</h2>
 <%= form_for([:admin,@battle,@round]) do |f| %>
   <label>start</label><%= f.datetime_select :start %><br>
-  <label>end</label><%= f.datetime_select :end %><br>
+  <%= f.label :end %><%= f.datetime_select :end %><br>
   <%= f.submit %>
+<% end %>
+
+<h2>Multi Round</h2>
+<%= form_for :create_all , :url=>create_all_admin_battle_rounds_path , :method=>:post do |f|%>
+    <label>start</label><%= f.datetime_select :start_time %><br>
+    <label>end</label>  <%= f.datetime_select :end_time %>  <br>
+    <label>round minute</label>  <%= f.number_field :round_min %>
+    <%= f.submit %>
 <% end %>

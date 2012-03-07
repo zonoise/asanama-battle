@@ -1,2 +1,20 @@
 <h1>Battles#show</h1>
 <p>Find me in app/views/battles/show.html.erb</p>
+
+<%= link_to 'panelists', battle_panelists_path(params[:id]) %>
+
+<% for r in Round.where(:battle_id=>params[:id]) %>
+  round start <%= r.start %><br>
+  <% for p in Panelist.where(:battle_id=>params[:id]) %>
+    round<%= r.id %>panelist<%= p.id %><%= p.name%> 
+    <% round_point = RoundPoint.where(:round_id=> r.id,:panelist_id=> p.id).first %>
+    <% if round_point  %>
+      good<%= round_point.good.to_s %>
+      bad<%= round_point.bad.to_s %>
+      point<%= round_point.point.to_s %>
+    <% end %><br>
+  <% end%>
+  <br>
+<% end%>
+
+

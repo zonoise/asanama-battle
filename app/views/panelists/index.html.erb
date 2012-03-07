@@ -1,5 +1,12 @@
 <h1>Panelists#index</h1>
 <p>Find me in app/views/panelists/index.html.erb</p>
 <% @panelists.each do |panelist|  %>
-<%= panelist.name %><br>
+  <%= panelist.name %>
+  <%= panelist.good %>
+  <%= panelist.bad %>
+  <%= panelist.point %>
+  <%= link_to 'bad' ,bad_battle_panelist_path(panelist.id ,:battle_id=>panelist.battle_id),{:method=>'post',:remote=>:true} %>
+  <%= link_to 'good' ,good_battle_panelist_path(panelist.id ,:battle_id=>panelist.battle_id),{:method=>'post',:remote=>:true} %>
+
+<br>
 <% end %>

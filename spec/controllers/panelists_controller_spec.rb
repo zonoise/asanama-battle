@@ -9,23 +9,16 @@ describe PanelistsController do
     end
   end
 
-  describe "GET 'show'" do
-    it "returns http success" do
-      get 'show'
-      response.should be_success
-    end
-  end
-
   describe "GET 'good'" do
     it "returns http success" do
-      get 'good'
+      post 'good'
       response.should be_success
     end
   end
 
   describe "GET 'bad'" do
     it "returns http success" do
-      get 'bad'
+      post 'bad'
       response.should be_success
     end
   end
@@ -37,4 +30,9 @@ describe PanelistsController do
     end
   end
 
+  describe "GET score" do
+    it "return good  and bad and point" do
+      pending
+    end
+  end
 end

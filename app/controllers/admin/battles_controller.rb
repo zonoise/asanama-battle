@@ -1,5 +1,5 @@
 class Admin::BattlesController < ApplicationController
-
+  layout 'admin' 
   def index
     @battles=Battle.find(:all)
   end

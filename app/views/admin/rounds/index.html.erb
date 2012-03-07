@@ -1,3 +1,6 @@
+<%=link_to 'AdminTOP' , admin_path %> > 
+<%=link_to  'BattleTOP' , admin_battle_path(params[:battle_id]) %><br>
+
 <% b = Battle.find(params[:battle_id]) %>
 <h2>Battle</h2>
 <label>title</label><%= b.title %> <br>
@@ -16,7 +19,7 @@
       <td>
         <%= link_to("Delete" ,
                      admin_battle_round_path(r.id,:battle_id=> b.id) ,
-                     :method => :delete) %>
+                     :method => :delete,:confirm => 'delete?') %>
       </td>
 
       <td>

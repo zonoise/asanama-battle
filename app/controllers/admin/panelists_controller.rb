@@ -1,4 +1,5 @@
 class Admin::PanelistsController < ApplicationController
+  layout 'admin'
   def index
     @panelists = Panelist.where('battle_id=?',params[:battle_id])
   end
